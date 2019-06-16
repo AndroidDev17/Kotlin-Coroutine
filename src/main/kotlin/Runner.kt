@@ -1,14 +1,15 @@
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
-suspend fun main(args: Array<String>) {
-    coroutineScope {
-        launch {
-            repeat(100) {
-                delay(20)
-                println("hello kotlin")
-            }
-        }
-    }
+fun main(args: Array<String>) = runBlocking{
+     try {
+          ExceptionDemo().runInParallelAndThrowExceptionWithoutScope1()
+          delay(50000)
+     } catch (e: Exception) {
+          println(e.message)
+     }
+
 }
+
+
+
